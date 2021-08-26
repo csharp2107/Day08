@@ -9,14 +9,19 @@ namespace EFCoreMariaDbExample
         {
             using (var ctx = new MyDbContext())
             {
-                List<Department> depts = new List<Department>();
-                Department d = new Department()
-                {
-                    Name = "Finance"
-                };
-                depts.Add(d);
+                // initial list of depts
+                List<Department> depts = new List<Department>();                
+                depts.Add(new Department() { Name = "Finance" });
+                depts.Add(new Department() { Name = "IT" });
+                depts.Add(new Department() { Name = "Marketing" });
 
-                ctx.Departments.Add(d);
+                ctx.AddRange(depts);
+                ctx.SaveChanges();
+
+                Employee emp = new Employee();
+                emp.Name = "John Smith II";
+                emp.Department = ctx.Departments.Find(2);
+                ctx.Add(emp);
                 ctx.SaveChanges();
                 
             }
