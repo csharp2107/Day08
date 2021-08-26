@@ -13,7 +13,7 @@ namespace EFCoreMariaDbExample
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            modelBuilder.Entity<EmployeeAddress>().HasKey(ea => ea.EmployeeID);
         }
 
         private const string connString = "server=localhost;database=eftest;user=root;password=root;port=3306";

@@ -16,7 +16,7 @@ namespace EFCoreMariaDbExample
 
     class EmployeeAddress
     {
-        public int EmployeeAddressID { get; set; }
+        public int EmployeeID { get; set; }
         public string Address { get; set; }
         //
         public virtual Employee Employee { get; set; }
